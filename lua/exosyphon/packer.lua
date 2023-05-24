@@ -48,6 +48,11 @@ use {
 }
 
 use("nathom/tmux.nvim")
-
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 end)
 
