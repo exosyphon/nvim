@@ -61,6 +61,7 @@ vim.keymap.set("n",  "<leader>dr", "<cmd>lua require'dapui'.float_element('repl'
 vim.keymap.set("n",  "<leader>ds", "<cmd>lua require'dapui'.float_element('scopes', { width = 150, height = 50, enter = true })<CR>")
 vim.keymap.set("n",  "<leader>df", "<cmd>lua require'dapui'.float_element('stacks', { width = 150, height = 50, enter = true })<CR>")
 vim.keymap.set("n",  "<leader>db", "<cmd>lua require'dapui'.float_element('breakpoints', { enter = true })<CR>")
+vim.keymap.set("n",  "<leader>do", "<cmd>lua require'dapui'.toggle()<CR>")
 vim.keymap.set("n",  "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>")
 
 vim.keymap.set("n", "<leader><leader>", function()
