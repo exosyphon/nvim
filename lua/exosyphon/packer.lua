@@ -98,5 +98,6 @@ use {
   },
 }
 use 'theHamsta/nvim-dap-virtual-text'
+use 'andymass/vim-matchup'
 end)
 
