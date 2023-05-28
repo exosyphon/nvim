@@ -8,3 +8,4 @@ end
 
 Colors()
 
+vim.cmd('colorscheme gruvbox')

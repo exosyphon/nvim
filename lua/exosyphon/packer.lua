@@ -8,17 +8,15 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use({ "ellisonleao/gruvbox.nvim", 
     as = "gruvbox", 
     config = function()
         vim.cmd('colorscheme gruvbox')
     end
 })
--- vim.cmd('colorscheme gruvbox')
 
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 use('nvim-treesitter/playground')
@@ -57,6 +55,47 @@ use {
 use {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
+}
+use {
+  "nvim-neotest/neotest",
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "antoinemadec/FixCursorHold.nvim",
+    "olimorris/neotest-rspec",
+    "haydenmeade/neotest-jest",
+    "zidhuss/neotest-minitest",
+    "nvim-neotest/neotest-vim-test",
+  },
+}
+use 'mfussenegger/nvim-dap'
+use 'rcarriga/nvim-dap-ui'
+use 'mxsdev/nvim-dap-vscode-js'
+use 'suketa/nvim-dap-ruby'
+use 'Pocco81/DAPInstall.nvim'
+use 'rcarriga/cmp-dap'
+use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+})
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
+use { 'junegunn/fzf', run = ":call fzf#install()" }
+use 'nanotee/zoxide.vim'
+use {'nvim-telescope/telescope-ui-select.nvim' }
+use "debugloop/telescope-undo.nvim"
+use {
+  "AckslD/nvim-neoclip.lua",
+  requires = {
+    {'nvim-telescope/telescope.nvim'},
+  },
 }
 end)
 
