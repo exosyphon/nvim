@@ -97,5 +97,6 @@ use {
     {'nvim-telescope/telescope.nvim'},
   },
 }
+use 'theHamsta/nvim-dap-virtual-text'
 end)
 
