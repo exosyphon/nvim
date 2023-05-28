@@ -100,5 +100,17 @@ use {
 use 'theHamsta/nvim-dap-virtual-text'
 use 'andymass/vim-matchup'
 use 'jinh0/eyeliner.nvim'
+use { "anuvyklack/windows.nvim",
+   requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+   },
+   config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require('windows').setup()
+   end
+}
 end)
 
