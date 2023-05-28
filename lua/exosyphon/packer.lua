@@ -99,5 +99,6 @@ use {
 }
 use 'theHamsta/nvim-dap-virtual-text'
 use 'andymass/vim-matchup'
+use 'jinh0/eyeliner.nvim'
 end)
 
