@@ -112,5 +112,6 @@ use { "anuvyklack/windows.nvim",
       require('windows').setup()
    end
 }
+use 'voldikss/vim-floaterm'
 end)
 
