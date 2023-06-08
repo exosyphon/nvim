@@ -113,5 +113,13 @@ use { "anuvyklack/windows.nvim",
    end
 }
 use 'voldikss/vim-floaterm'
+use {
+    'tummetott/unimpaired.nvim',
+    config = function()
+        require('unimpaired').setup {
+            -- add any options here or leave empty
+        }
+    end
+}
 end)
 
