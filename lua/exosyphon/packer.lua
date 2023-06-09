@@ -121,5 +121,7 @@ use {
         }
     end
 }
+use 'airblade/vim-gitgutter'
+use 'mg979/vim-visual-multi'
 end)
 
