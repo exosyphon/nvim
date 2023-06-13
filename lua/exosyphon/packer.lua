@@ -117,5 +117,6 @@ return require('packer').startup(function(use)
     }
     use 'airblade/vim-gitgutter'
     use 'mg979/vim-visual-multi'
+    use 'tpope/vim-rails'
 end)
 
