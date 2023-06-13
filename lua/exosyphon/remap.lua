@@ -65,6 +65,8 @@ vim.keymap.set("n",  "<leader>db", "<cmd>lua require'dapui'.float_element('break
 vim.keymap.set("n",  "<leader>do", "<cmd>lua require'dapui'.toggle()<CR>")
 vim.keymap.set("n",  "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>")
 
+vim.keymap.set("n",  "<leader>U", "<cmd>GitGutterUndoHunk<CR>")
+
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
