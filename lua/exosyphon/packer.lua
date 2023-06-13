@@ -118,5 +118,6 @@ return require('packer').startup(function(use)
     use 'airblade/vim-gitgutter'
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-rails'
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 end)
 
