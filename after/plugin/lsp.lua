@@ -6,8 +6,6 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
-	'ruby_ls',
-	'standardrb',
 	'kotlin_language_server',
     'jdtls',
 	'lua_ls',
@@ -19,7 +17,8 @@ lsp.ensure_installed({
     'pylsp',
     'dockerls',
     'bashls',
-    'marksman'
+    'marksman',
+    'solargraph',
 })
 
 local cmp = require("cmp")
