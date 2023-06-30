@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>ft", "<cmd>:FloatermNew --height=0.6 --width=0.4 --wintype=float --name=floaterm1 --position=center --autoclose=2<CR>")
+vim.keymap.set("n", "<leader>ft", "<cmd>:FloatermNew --height=0.7 --width=0.8 --wintype=float --name=floaterm1 --position=center --autoclose=2<CR>")
