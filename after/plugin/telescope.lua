@@ -5,6 +5,7 @@ vim.keymap.set('n', '<leader>fc', '<cmd>lua require("telescope.builtin").live_gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>fi', '<cmd>AdvancedGitSearch<CR>')
 
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
