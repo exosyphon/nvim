@@ -125,5 +125,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-rails'
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     use 'aaronhallaert/advanced-git-search.nvim'
+    use 'tpope/vim-rhubarb'
 end)
 
