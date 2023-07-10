@@ -56,4 +56,5 @@ require('telescope').load_extension('ui-select')
 vim.g.zoxide_use_select = true
 
 require("telescope").load_extension("undo")
-
+    
+require("telescope").load_extension("advanced_git_search")
