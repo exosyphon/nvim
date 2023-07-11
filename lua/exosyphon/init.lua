@@ -115,5 +115,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-require('lazy').setup('plugins')
+require('lazy').setup('plugins', {
+    change_detection = {
+        notify = false,
+    }
+})
 

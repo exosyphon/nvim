@@ -26,15 +26,91 @@ return {
             "olimorris/neotest-rspec",
             "haydenmeade/neotest-jest",
             "zidhuss/neotest-minitest",
-            "nvim-neotest/neotest-vim-test",
         },
     },
-    'mfussenegger/nvim-dap',
-    'rcarriga/nvim-dap-ui',
-    'suketa/nvim-dap-ruby',
-    { "mxsdev/nvim-dap-vscode-js",                dependencies = { "mfussenegger/nvim-dap" } },
-    'rcarriga/cmp-dap',
-    'Pocco81/DAPInstall.nvim',
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            {
+                "rcarriga/nvim-dap-ui",
+                config = function(_, opts)
+                    local dap = require("dap")
+                    local dapui = require("dapui")
+                    dapui.setup(opts)
+                    dap.listeners.after.event_initialized["dapui_config"] = function()
+                        dapui.open({})
+                    end
+                    dap.listeners.before.event_terminated["dapui_config"] = function()
+                        dapui.close({})
+                    end
+                    dap.listeners.before.event_exited["dapui_config"] = function()
+                        dapui.close({})
+                    end
+                end,
+            },
+            {
+                "suketa/nvim-dap-ruby",
+                config = function()
+                    require("dap-ruby").setup()
+                end,
+            },
+            {
+                "theHamsta/nvim-dap-virtual-text",
+                opts = {},
+            },
+            {
+                "jay-babu/mason-nvim-dap.nvim",
+                dependencies = "mason.nvim",
+                cmd = { "DapInstall", "DapUninstall" },
+                opts = {
+                    automatic_installation = true,
+                    handlers = {},
+                    ensure_installed = {},
+                },
+            },
+            { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+        },
+        -- stylua: ignore
+        -- keys = {
+        --     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+        --                                                                                                               desc =
+        --         "Breakpoint Condition" },
+        --     { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc =
+        --     "Toggle Breakpoint" },
+        --     { "<leader>dc", function() require("dap").continue() end,                                             desc =
+        --     "Continue" },
+        --     { "<leader>dC", function() require("dap").run_to_cursor() end,                                        desc =
+        --     "Run to Cursor" },
+        --     { "<leader>dg", function() require("dap").goto_() end,                                                desc =
+        --     "Go to line (no execute)" },
+        --     { "<leader>di", function() require("dap").step_into() end,                                            desc =
+        --     "Step Into" },
+        --     { "<leader>dj", function() require("dap").down() end,                                                 desc =
+        --     "Down" },
+        --     { "<leader>dk", function() require("dap").up() end,                                                   desc =
+        --     "Up" },
+        --     { "<leader>dl", function() require("dap").run_last() end,                                             desc =
+        --     "Run Last" },
+        --     { "<leader>do", function() require("dap").step_out() end,                                             desc =
+        --     "Step Out" },
+        --     { "<leader>dO", function() require("dap").step_over() end,                                            desc =
+        --     "Step Over" },
+        --     { "<leader>dp", function() require("dap").pause() end,                                                desc =
+        --     "Pause" },
+        --     { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc =
+        --     "Toggle REPL" },
+        --     { "<leader>ds", function() require("dap").session() end,                                              desc =
+        --     "Session" },
+        --     { "<leader>dt", function() require("dap").terminate() end,                                            desc =
+        --     "Terminate" },
+        --     { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc =
+        --     "Widgets" },
+        -- },
+    },
+    {
+        "mxsdev/nvim-dap-vscode-js",
+        dependencies = { "mfussenegger/nvim-dap" }
+    },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -45,11 +121,13 @@ return {
         event = "VeryLazy",
         config = function()
             require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
             })
         end
     },
-    { 'junegunn/fzf',          build = ":call fzf#install()" },
+    {
+        'junegunn/fzf',
+        build = ":call fzf#install()"
+    },
     'nanotee/zoxide.vim',
     'nvim-telescope/telescope-ui-select.nvim',
     'debugloop/telescope-undo.nvim',
@@ -59,7 +137,6 @@ return {
             { 'nvim-telescope/telescope.nvim' },
         },
     },
-    'theHamsta/nvim-dap-virtual-text',
     'jinh0/eyeliner.nvim',
     {
         "anuvyklack/windows.nvim",
@@ -79,14 +156,16 @@ return {
         'tummetott/unimpaired.nvim',
         config = function()
             require('unimpaired').setup {
-                -- add any options here or leave empty
             }
         end
     },
     'airblade/vim-gitgutter',
     'mg979/vim-visual-multi',
     'tpope/vim-rails',
-    { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
+    {
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async'
+    },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -121,13 +200,8 @@ return {
         event = 'VeryLazy',
         init = function()
             vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
+            vim.o.timeoutlen = 500
+        end
     },
     {
         "aaronhallaert/advanced-git-search.nvim",

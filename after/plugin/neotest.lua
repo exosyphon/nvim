@@ -20,9 +20,6 @@ neotest.setup({
         }),
         require('neotest-minitest'),
         neotest_jest,
-        require('neotest-vim-test')({
-            ignore_file_types = { 'javascript', 'ruby', "vim", "python" },
-        }),
     },
     output_panel = {
         enabled = true,
