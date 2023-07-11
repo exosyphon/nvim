@@ -32,7 +32,7 @@ return {
     'mfussenegger/nvim-dap',
     'rcarriga/nvim-dap-ui',
     'suketa/nvim-dap-ruby',
-    { "mxsdev/nvim-dap-vscode-js", dependencies = {"mfussenegger/nvim-dap"} },
+    { "mxsdev/nvim-dap-vscode-js",                dependencies = { "mfussenegger/nvim-dap" } },
     'rcarriga/cmp-dap',
     'Pocco81/DAPInstall.nvim',
     {
@@ -49,19 +49,20 @@ return {
             })
         end
     },
-    { 'junegunn/fzf', build = ":call fzf#install()" },
+    { 'junegunn/fzf',          build = ":call fzf#install()" },
     'nanotee/zoxide.vim',
     'nvim-telescope/telescope-ui-select.nvim',
     'debugloop/telescope-undo.nvim',
     {
         "AckslD/nvim-neoclip.lua",
         dependencies = {
-            {'nvim-telescope/telescope.nvim'},
+            { 'nvim-telescope/telescope.nvim' },
         },
     },
     'theHamsta/nvim-dap-virtual-text',
     'jinh0/eyeliner.nvim',
-    { "anuvyklack/windows.nvim",
+    {
+        "anuvyklack/windows.nvim",
         dependencies = {
             "anuvyklack/middleclass",
             "anuvyklack/animation.nvim"
@@ -85,25 +86,25 @@ return {
     'airblade/vim-gitgutter',
     'mg979/vim-visual-multi',
     'tpope/vim-rails',
-    {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
+    { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
-            'williamboman/mason.nvim',
-            build = function()
-                pcall(vim.cmd, 'MasonUpdate')
-            end,
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {                            -- Optional
+                'williamboman/mason.nvim',
+                build = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
             },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     },
     {
@@ -127,5 +128,13 @@ return {
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         }
-    }
+    },
+    {
+        "aaronhallaert/advanced-git-search.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "tpope/vim-fugitive",
+            'tpope/vim-rhubarb',
+        },
+    },
 }
