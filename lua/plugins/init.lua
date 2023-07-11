@@ -5,6 +5,7 @@ return {
     'ThePrimeagen/harpoon',
     'mbbill/undotree',
     'tpope/vim-fugitive',
+    'tpope/vim-repeat',
     'nathom/tmux.nvim',
     {
         'numToStr/Comment.nvim',
@@ -96,13 +97,35 @@ return {
             build = function()
                 pcall(vim.cmd, 'MasonUpdate')
             end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            },
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
+    },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require('null-ls').setup({
+
+            })
+        end,
+        requires = { 'nvim-lua/plenary.nvim' },
+    },
+    {
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
     }
-},
 }
