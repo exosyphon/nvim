@@ -77,6 +77,9 @@ vim.keymap.set("n",  "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>")
 
 vim.keymap.set("n",  "<leader>U", "<cmd>GitGutterUndoHunk<CR>")
 
+vim.keymap.set("n",  "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>")
+vim.keymap.set("n",  "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>")
+
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
