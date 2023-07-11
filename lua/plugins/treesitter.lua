@@ -23,6 +23,7 @@ return {
                 "html",
                 "terraform",
                 "go",
+                "tsx",
             },
             sync_install = false,
             highlight = { enable = true },
