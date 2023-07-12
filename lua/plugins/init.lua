@@ -46,6 +46,11 @@ return {
             "mfussenegger/nvim-dap",
             "jfpedroza/neotest-elixir",
         },
+        opts = {
+            adapters = {
+                [ "neotest-elixir" ] = {},
+            },
+        },
         config = function()
             local neotest = require('neotest')
 
