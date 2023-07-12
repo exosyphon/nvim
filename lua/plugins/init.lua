@@ -1,10 +1,25 @@
 return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    'ellisonleao/gruvbox.nvim',
+    {
+        'ellisonleao/gruvbox.nvim',
+        config = function()
+            vim.cmd('colorscheme gruvbox')
+        end
+    },
     'nvim-treesitter/playground',
     'ThePrimeagen/harpoon',
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
+    {
+        'mbbill/undotree',
+        config = function()
+            vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>")
+        end
+    },
+    {
+        'tpope/vim-fugitive',
+        config = function()
+            vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+        end
+    },
     'tpope/vim-repeat',
     'nathom/tmux.nvim',
     {
@@ -15,7 +30,9 @@ return {
     },
     {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
+        config = function()
+            require("nvim-autopairs").setup()
+        end
     },
     {
         "nvim-neotest/neotest",
@@ -28,13 +45,13 @@ return {
             "zidhuss/neotest-minitest",
             "mfussenegger/nvim-dap",
         },
-        config = function ()
+        config = function()
             local neotest = require('neotest')
 
             local neotest_jest = require('neotest-jest')({
                 jestCommand = 'npm test --'
             })
-            neotest_jest.filter_dir = function (name)
+            neotest_jest.filter_dir = function(name)
                 return name ~= 'node_modules' and name ~= '__snapshots__'
             end
 
@@ -147,7 +164,14 @@ return {
     },
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('lualine').setup({
+                options = {
+                    theme = 'gruvbox'
+                }
+            })
+        end
     },
     {
         "kylechui/nvim-surround",
@@ -185,12 +209,17 @@ return {
             require('windows').setup()
         end
     },
-    'voldikss/vim-floaterm',
+    {
+        'voldikss/vim-floaterm',
+        config = function()
+            vim.keymap.set("n", "<leader>ft",
+                "<cmd>:FloatermNew --height=0.7 --width=0.8 --wintype=float --name=floaterm1 --position=center --autoclose=2<CR>")
+        end
+    },
     {
         'tummetott/unimpaired.nvim',
         config = function()
-            require('unimpaired').setup {
-            }
+            require('unimpaired').setup()
         end
     },
     'airblade/vim-gitgutter',
