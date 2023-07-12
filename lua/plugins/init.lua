@@ -74,7 +74,6 @@ return {
                     }),
                     require('neotest-minitest'),
                     neotest_jest,
-                    require('jfpedroza/neotest-elixir'),
                 },
                 output_panel = {
                     enabled = true,
