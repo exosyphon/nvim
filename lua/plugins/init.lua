@@ -44,6 +44,7 @@ return {
             "haydenmeade/neotest-jest",
             "zidhuss/neotest-minitest",
             "mfussenegger/nvim-dap",
+            "jfpedroza/neotest-elixir",
         },
         config = function()
             local neotest = require('neotest')
@@ -68,6 +69,7 @@ return {
                     }),
                     require('neotest-minitest'),
                     neotest_jest,
+                    require('jfpedroza/neotest-elixir'),
                 },
                 output_panel = {
                     enabled = true,
