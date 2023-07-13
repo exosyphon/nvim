@@ -1,4 +1,45 @@
 return {
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.1',
+        dependencies = { { 'nvim-lua/plenary.nvim' } }
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            local configs = require("nvim-treesitter.configs")
+
+            configs.setup({
+                ensure_installed = {
+                    "javascript",
+                    "typescript",
+                    "c",
+                    "lua",
+                    "vim",
+                    "vimdoc",
+                    "query",
+                    "elixir",
+                    "erlang",
+                    "heex",
+                    "eex",
+                    "java",
+                    "kotlin",
+                    "jq",
+                    "dockerfile",
+                    "json",
+                    "html",
+                    "terraform",
+                    "go",
+                    "tsx",
+                    "bash",
+                },
+                sync_install = false,
+                highlight = { enable = true },
+                indent = { enable = true },
+            })
+        end
+    },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
         'ellisonleao/gruvbox.nvim',
@@ -48,7 +89,8 @@ return {
         },
         opts = {
             adapters = {
-                [ "neotest-elixir" ] = {},
+                ["neotest-elixir"] = {},
+                ["neotest-minitest"] = {},
             },
         },
         config = function()
@@ -72,7 +114,6 @@ return {
                             })
                         end
                     }),
-                    require('neotest-minitest'),
                     neotest_jest,
                 },
                 output_panel = {
