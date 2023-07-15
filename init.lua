@@ -1,3 +1,3 @@
-require('exosyphon.plugins')
+require('exosyphon.lazy')
 require('exosyphon.remaps')
 require('exosyphon.options')
