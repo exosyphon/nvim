@@ -1,3 +1,3 @@
-require('exosyphon.remap')
+require('exosyphon.remaps')
 require("exosyphon.set")
 

@@ -8,12 +8,12 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { "ellisonleao/gruvbox.nvim" }
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
@@ -24,18 +24,18 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
-            'williamboman/mason.nvim',
-            run = function()
-                pcall(vim.cmd, 'MasonUpdate')
-            end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {                          -- Optional
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },            -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },        -- Required
+            { 'L3MON4D3/LuaSnip' },            -- Required
         }
     }
 
@@ -64,11 +64,11 @@ return require('packer').startup(function(use)
     }
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
-    use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+    use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
     use {
         "microsoft/vscode-js-debug",
         opt = true,
-        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
     }
     use 'suketa/nvim-dap-ruby'
     use 'Pocco81/DAPInstall.nvim'
@@ -88,12 +88,12 @@ return require('packer').startup(function(use)
     }
     use { 'junegunn/fzf', run = ":call fzf#install()" }
     use 'nanotee/zoxide.vim'
-    use {'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
     use "debugloop/telescope-undo.nvim"
     use {
         "AckslD/nvim-neoclip.lua",
         requires = {
-            {'nvim-telescope/telescope.nvim'},
+            { 'nvim-telescope/telescope.nvim' },
         },
     }
     use 'theHamsta/nvim-dap-virtual-text'
@@ -123,8 +123,7 @@ return require('packer').startup(function(use)
     use 'airblade/vim-gitgutter'
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-rails'
-    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
     use 'aaronhallaert/advanced-git-search.nvim'
     use 'tpope/vim-rhubarb'
 end)
-
