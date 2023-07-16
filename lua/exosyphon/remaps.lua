@@ -60,6 +60,7 @@ vim.keymap.set("n",  "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>")
 
 vim.keymap.set("n",  "<leader>U", "<cmd>GitGutterUndoHunk<CR>")
 
+-- Copy file paths
 vim.keymap.set("n",  "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>")
 vim.keymap.set("n",  "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>")
 
@@ -67,6 +68,13 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- Open Zoxide telescope extension
 vim.keymap.set("n",  "<leader>Z", "<cmd>Zi<CR>")
+
+-- Resize with arrows
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
 
 
