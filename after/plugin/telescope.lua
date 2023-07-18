@@ -7,6 +7,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>fi', '<cmd>AdvancedGitSearch<CR>')
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
+vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
 
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
