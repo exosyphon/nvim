@@ -32,9 +32,6 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-refactor",
-        },
         config = function()
             local configs = require("nvim-treesitter.configs")
 
@@ -66,12 +63,6 @@ local plugins = {
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
-                refactor = {
-                    highlight_definitions = {
-                        enable = true,
-                        clear_on_cursor_move = true,
-                    },
-                },
             })
         end
     },
