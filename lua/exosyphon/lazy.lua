@@ -345,6 +345,7 @@ local plugins = {
         end,
         opts = {}
     },
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
     {
         "aaronhallaert/advanced-git-search.nvim",
         dependencies = {
