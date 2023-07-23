@@ -21,11 +21,21 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
+local actions = require "telescope.actions"
+
 telescope.setup({
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
 		vimgrep_arguments = vimgrep_arguments,
-		path_display = {"truncate"}
+		path_display = {"truncate"},
+	        mappings = {
+	            n = {
+        	        ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            	    },
+            	    i = {
+                	["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            	    }
+        	},
 	},
 	pickers = {
 		find_files = {
