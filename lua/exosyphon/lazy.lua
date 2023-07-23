@@ -66,7 +66,7 @@ local plugins = {
             })
         end
     },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'nvim-telescope/telescope-fzf-native.nvim',    build = 'make' },
     {
         'ellisonleao/gruvbox.nvim',
         config = function()

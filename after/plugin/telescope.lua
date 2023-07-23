@@ -24,28 +24,28 @@ table.insert(vimgrep_arguments, "!**/.git/*")
 local actions = require "telescope.actions"
 
 telescope.setup({
-	defaults = {
-		-- `hidden = true` is not supported in text grep commands.
-		vimgrep_arguments = vimgrep_arguments,
-		path_display = {"truncate"},
-	        mappings = {
-	            n = {
-        	        ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            	    },
-            	    i = {
-			["<C-j>"] = actions.cycle_history_next,
-                	["<C-k>"] = actions.cycle_history_prev,
-					
-                	["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            	    }
-        	},
-	},
-	pickers = {
-		find_files = {
-			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-		},
-	},
+    defaults = {
+        -- `hidden = true` is not supported in text grep commands.
+        vimgrep_arguments = vimgrep_arguments,
+        path_display = { "truncate" },
+        mappings = {
+            n = {
+                ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+            i = {
+                ["<C-j>"] = actions.cycle_history_next,
+                ["<C-k>"] = actions.cycle_history_prev,
+
+                ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            }
+        },
+    },
+    pickers = {
+        find_files = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+    },
     extensions = {
         undo = {
             use_delta = true,
@@ -76,4 +76,3 @@ require("telescope").load_extension("undo")
 require("telescope").load_extension("advanced_git_search")
 
 require("telescope").load_extension("live_grep_args")
-
