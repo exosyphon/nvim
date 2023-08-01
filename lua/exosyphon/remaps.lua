@@ -89,7 +89,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 -- Open Zoxide telescope extension
-vim.keymap.set("n",  "<leader>Z", "<cmd>Zi<CR>")
+vim.keymap.set("n",  "<leader>Z", "<cmd>Zi<CR>", { desc = "Open Zoxide"})
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-S-Down>", ":resize +2<CR>")
