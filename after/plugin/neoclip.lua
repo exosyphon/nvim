@@ -55,5 +55,5 @@ require('neoclip').setup({
       },
 })
 
-vim.keymap.set("n",  "<leader>o", "<cmd>Telescope neoclip<CR>")
+vim.keymap.set("n",  "<leader>o", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip"})
 
