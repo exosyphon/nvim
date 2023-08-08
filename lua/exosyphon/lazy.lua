@@ -367,7 +367,7 @@ local plugins = {
         },
     },
     {
-        "dyng/ctrlsf.vim"
+        "nvim-pack/nvim-spectre"
     },
 }
 
