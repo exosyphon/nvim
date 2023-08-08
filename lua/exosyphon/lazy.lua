@@ -89,13 +89,13 @@ local plugins = {
     {
         'mbbill/undotree',
         config = function()
-            vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo"})
+            vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
         end
     },
     {
         'tpope/vim-fugitive',
         config = function()
-            vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Open Fugitive Panel"})
+            vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Open Fugitive Panel" })
         end
     },
     'tpope/vim-repeat',
@@ -297,7 +297,8 @@ local plugins = {
         'voldikss/vim-floaterm',
         config = function()
             vim.keymap.set("n", "<leader>ft",
-                "<cmd>:FloatermNew --height=0.7 --width=0.8 --wintype=float --name=floaterm1 --position=center --autoclose=2<CR>", { desc = "Open FloatTerm"})
+                "<cmd>:FloatermNew --height=0.7 --width=0.8 --wintype=float --name=floaterm1 --position=center --autoclose=2<CR>",
+                { desc = "Open FloatTerm" })
         end
     },
     {
@@ -364,6 +365,9 @@ local plugins = {
             "tpope/vim-fugitive",
             'tpope/vim-rhubarb',
         },
+    },
+    {
+        "dyng/ctrlsf.vim"
     },
 }
 
