@@ -1,0 +1,4 @@
+Some new text
+that 
+was added
+
