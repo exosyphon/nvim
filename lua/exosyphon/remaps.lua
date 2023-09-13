@@ -105,3 +105,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up"})
 
 -- Search for highlighted text in buffer
 vim.keymap.set("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text"})
+
+-- Exit terminal mode shortcut
+vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
+
