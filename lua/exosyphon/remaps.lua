@@ -77,9 +77,6 @@ vim.keymap.set("n",  "<leader>db", "<cmd>lua require'dapui'.float_element('break
 vim.keymap.set("n",  "<leader>do", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Toggle DAP UI"})
 vim.keymap.set("n",  "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debug Last Test"})
 
--- Git revert at current cursor location
-vim.keymap.set("n",  "<leader>U", "<cmd>GitGutterUndoHunk<CR>", { desc = "Revert Git Hunk"})
-
 -- Copy file paths
 vim.keymap.set("n",  "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "Copy File Name"})
 vim.keymap.set("n",  "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy File Path"})
