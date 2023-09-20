@@ -8,6 +8,7 @@ vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = "Find S
 vim.keymap.set('n', '<leader>fi', '<cmd>AdvancedGitSearch<CR>', { desc = "AdvancedGitSearch"})
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "Find Old Files"})
 vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = "Find Word under Cursor"})
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "Search Git Commits"})
 
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
