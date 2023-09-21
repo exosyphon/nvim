@@ -83,10 +83,13 @@ local plugins = {
     },
     { 'nvim-telescope/telescope-fzf-native.nvim',    build = 'make' },
     {
+        "folke/tokyonight.nvim",
+    },
+    {
+        "catppuccin/nvim",
+    },
+    {
         'ellisonleao/gruvbox.nvim',
-        config = function()
-            vim.cmd('colorscheme gruvbox')
-        end
     },
     'ThePrimeagen/harpoon',
     {
@@ -340,8 +343,10 @@ local plugins = {
                     -- Actions
                     map('n', '<leader>hs', gs.stage_hunk, { desc = "GitSigns state hunk" })
                     map('n', '<leader>hr', gs.reset_hunk, { desc = "GitSigns reset hunk" })
-                    map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, { desc = "GitSigns stage_hunk" })
-                    map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, { desc = "GitSigns reset_hunk" })
+                    map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+                        { desc = "GitSigns stage_hunk" })
+                    map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+                        { desc = "GitSigns reset_hunk" })
                     map('n', '<leader>hS', gs.stage_buffer, { desc = "GitSigns stage_buffer" })
                     map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "GitSigns undo_stage_hunk" })
                     map('n', '<leader>hR', gs.reset_buffer, { desc = "GitSigns reset_buffer" })
