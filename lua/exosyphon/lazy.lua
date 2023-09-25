@@ -16,6 +16,12 @@ vim.g.maplocalleader = ' '
 
 local plugins = {
     {
+        "RRethy/vim-illuminate",
+        config = function()
+            require('illuminate')
+        end
+    },
+    {
         "ThePrimeagen/refactoring.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
