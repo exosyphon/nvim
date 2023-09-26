@@ -110,7 +110,7 @@ local plugins = {
     {
         'exosyphon/telescope-color-picker.nvim',
         config = function ()
-            vim.keymap.set("n", "<leader>uC", "<cmd>Telescope telescope-color-picker colors<CR>", { desc = "Telescope Color Picker" })
+            vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
         end
     },
     'ThePrimeagen/harpoon',
