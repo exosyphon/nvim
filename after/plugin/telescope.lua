@@ -93,3 +93,5 @@ require("telescope").load_extension("undo")
 require("telescope").load_extension("advanced_git_search")
 
 require("telescope").load_extension("live_grep_args")
+
+require("telescope").load_extension("telescope-color-picker")
