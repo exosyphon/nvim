@@ -22,6 +22,12 @@ local plugins = {
         end
     },
     {
+         "ggandor/leap.nvim",
+         config = function()
+             require('leap').add_default_mappings()
+         end
+    },
+    {
         "ThePrimeagen/refactoring.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
