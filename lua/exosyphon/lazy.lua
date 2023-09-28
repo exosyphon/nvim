@@ -310,7 +310,15 @@ local plugins = {
             { 'nvim-telescope/telescope.nvim' },
         },
     },
-    'jinh0/eyeliner.nvim',
+    {
+        'jinh0/eyeliner.nvim',
+        config = function()
+            require 'eyeliner'.setup {
+                highlight_on_key = true,
+                dim = false
+            }
+        end
+    },
     {
         "anuvyklack/windows.nvim",
         dependencies = {
