@@ -22,10 +22,10 @@ local plugins = {
         end
     },
     {
-         "ggandor/leap.nvim",
-         config = function()
-             require('leap').add_default_mappings()
-         end
+        "ggandor/leap.nvim",
+        config = function()
+            require('leap').add_default_mappings()
+        end
     },
     {
         "ThePrimeagen/refactoring.nvim",
@@ -115,7 +115,7 @@ local plugins = {
     },
     {
         'exosyphon/telescope-color-picker.nvim',
-        config = function ()
+        config = function()
             vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
         end
     },
