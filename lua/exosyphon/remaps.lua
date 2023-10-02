@@ -1,5 +1,5 @@
 -- Open Ex as buffer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "Open Ex" })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "Open NetRW" })
 
 -- Exit insert mode without hitting Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
