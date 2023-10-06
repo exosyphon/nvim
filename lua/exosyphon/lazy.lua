@@ -48,9 +48,11 @@ local plugins = {
         config = function()
             require("octo").setup({ enable_builtin = true })
             vim.cmd([[hi OctoEditable guibg=none]])
+            vim.treesitter.language.register("markdown", "octo")
         end,
         keys = {
             { "<leader>O", "<cmd>Octo<cr>", desc = "Octo" },
+            { "<leader>Op", "<cmd>Octo pr list<cr>", desc = "Octo pr list" },
         }
     },
     {
