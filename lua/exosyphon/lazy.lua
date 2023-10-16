@@ -16,6 +16,12 @@ vim.g.maplocalleader = ' '
 
 local plugins = {
     {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = function()
+            require("treesitter-context").setup()
+        end
+    },
+    {
         "RRethy/vim-illuminate",
         config = function()
             require('illuminate')
@@ -51,7 +57,7 @@ local plugins = {
             vim.treesitter.language.register("markdown", "octo")
         end,
         keys = {
-            { "<leader>O", "<cmd>Octo<cr>", desc = "Octo" },
+            { "<leader>O",  "<cmd>Octo<cr>",         desc = "Octo" },
             { "<leader>Op", "<cmd>Octo pr list<cr>", desc = "Octo pr list" },
         }
     },
