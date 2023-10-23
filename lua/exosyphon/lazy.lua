@@ -124,7 +124,10 @@ local plugins = {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("octo").setup({ enable_builtin = true })
+      require("octo").setup({
+        enable_builtin = true,
+        use_local_fs = true,
+      })
       vim.cmd([[hi OctoEditable guibg=none]])
       vim.treesitter.language.register("markdown", "octo")
     end,
