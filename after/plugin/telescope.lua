@@ -54,6 +54,7 @@ telescope.setup({
                 ["<C-k>"] = actions.cycle_history_prev,
                 ["<CR>"] = select_one_or_multi,
                 ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                ["<C-S-d>"] = actions.delete_buffer,
             }
         },
     },
