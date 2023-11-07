@@ -376,7 +376,7 @@ local plugins = {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "gruvbox",
+          theme = "tokyonight",
         },
         sections = {
           lualine_a = { 'mode' },
