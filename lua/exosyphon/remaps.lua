@@ -45,7 +45,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location
 
 -- Replace word under cursor across entire buffer
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Replace word under cursor" })
+  { desc = "Replace word under cursor" })
 
 -- Make current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
@@ -56,11 +56,11 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/exosyphon/lazy.lua
 -- Run Tests
 vim.keymap.set("n", "<leader>t", "<cmd>lua require('neotest').run.run()<CR>", { desc = "Run Test" })
 vim.keymap.set("n", "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
-    { desc = "Run Test File" })
+  { desc = "Run Test File" })
 vim.keymap.set("n", "<leader>td", "<cmd>lua require('neotest').run.run(vim.fn.getcwd())<CR>",
-    { desc = "Run Current Test Directory" })
+  { desc = "Run Current Test Directory" })
 vim.keymap.set("n", "<leader>tp", "<cmd>lua require('neotest').output_panel.toggle()<CR>",
-    { desc = "Toggle Test Output Panel" })
+  { desc = "Toggle Test Output Panel" })
 vim.keymap.set("n", "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR>", { desc = "Run Last Test" })
 vim.keymap.set("n", "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", { desc = "Toggle Test Summary" })
 
@@ -73,20 +73,20 @@ vim.keymap.set("n", "<leader>dsu", "<cmd>DapStepOut<CR>", { desc = "Step Out" })
 vim.keymap.set("n", "<leader>dst", "<cmd>DapStepTerminate<CR>", { desc = "Stop Debugger" })
 vim.keymap.set("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle Breakpoint" })
 vim.keymap.set("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-    { desc = "Toggle Breakpoint Condition" })
+  { desc = "Toggle Breakpoint Condition" })
 vim.keymap.set("n", "<leader>E", "<cmd>lua require'dap'.set_exception_breakpoints()<CR>",
-    { desc = "Toggle Exception Breakpoint" })
+  { desc = "Toggle Exception Breakpoint" })
 vim.keymap.set("n", "<leader>dr",
-    "<cmd>lua require'dapui'.float_element('repl', { width = 100, height = 40, enter = true })<CR>",
-    { desc = "Show DAP REPL" })
+  "<cmd>lua require'dapui'.float_element('repl', { width = 100, height = 40, enter = true })<CR>",
+  { desc = "Show DAP REPL" })
 vim.keymap.set("n", "<leader>ds",
-    "<cmd>lua require'dapui'.float_element('scopes', { width = 150, height = 50, enter = true })<CR>",
-    { desc = "Show DAP Scopes" })
+  "<cmd>lua require'dapui'.float_element('scopes', { width = 150, height = 50, enter = true })<CR>",
+  { desc = "Show DAP Scopes" })
 vim.keymap.set("n", "<leader>df",
-    "<cmd>lua require'dapui'.float_element('stacks', { width = 150, height = 50, enter = true })<CR>",
-    { desc = "Show DAP Stacks" })
+  "<cmd>lua require'dapui'.float_element('stacks', { width = 150, height = 50, enter = true })<CR>",
+  { desc = "Show DAP Stacks" })
 vim.keymap.set("n", "<leader>db", "<cmd>lua require'dapui'.float_element('breakpoints', { enter = true })<CR>",
-    { desc = "Show DAP breakpoints" })
+  { desc = "Show DAP breakpoints" })
 vim.keymap.set("n", "<leader>do", "<cmd>lua require'dapui'.toggle()<CR>", { desc = "Toggle DAP UI" })
 vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debug Last Test" })
 
@@ -95,7 +95,7 @@ vim.keymap.set("n", "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "C
 vim.keymap.set("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy File Path" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+  vim.cmd("so")
 end, { desc = "Source current file" })
 
 -- Open Zoxide telescope extension
@@ -121,3 +121,20 @@ vim.keymap.set("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text"
 
 -- Exit terminal mode shortcut
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
+
+-- Autocommands
+vim.api.nvim_create_augroup("custom_buffer", { clear = true })
+
+-- start terminal in insert mode
+vim.api.nvim_create_autocmd("TermOpen", {
+  group   = "custom_buffer",
+  pattern = "*",
+  command = "startinsert | set winfixheight"
+})
+
+-- highlight yanks
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group    = "custom_buffer",
+  pattern  = "*",
+  callback = function() vim.highlight.on_yank { timeout = 200 } end
+})
