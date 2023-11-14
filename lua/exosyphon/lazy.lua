@@ -16,6 +16,15 @@ vim.g.maplocalleader = " "
 
 local plugins = {
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {},
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  },
+  {
     "simrat39/symbols-outline.nvim",
     config = function()
       require("symbols-outline").setup()
