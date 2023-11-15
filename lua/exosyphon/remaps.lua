@@ -7,6 +7,9 @@ vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
 -- Make Y behave like C or D
 vim.keymap.set("n", "Y", "y$")
 
+-- Select all
+vim.keymap.set("n", "==", "gg<S-v>G")
+
 -- Keep window centered when going up/down
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
