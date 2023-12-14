@@ -27,7 +27,7 @@ local plugins = {
       },
       presets = {
         lsp_doc_border = true,
-      }
+      },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -38,7 +38,7 @@ local plugins = {
     "simrat39/symbols-outline.nvim",
     config = function()
       require("symbols-outline").setup()
-    end
+    end,
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -87,7 +87,9 @@ local plugins = {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("conform").setup({
+      local conform = require("conform")
+
+      conform.setup({
         formatters_by_ft = {
           lua = { "stylua" },
           svelte = { { "prettierd", "prettier" } },
@@ -113,7 +115,13 @@ local plugins = {
         },
       })
 
-      vim.keymap.set("n", "<leader>l", "<cmd>lua vim.lsp.buf.format()<CR>")
+      vim.keymap.set({ "n", "v" }, "<leader>l", function()
+        conform.format({
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        })
+      end, { desc = "Format file or range (in visual mode)" })
     end,
   },
   {
@@ -151,14 +159,23 @@ local plugins = {
       vim.treesitter.language.register("markdown", "octo")
     end,
     keys = {
-      { "<leader>O",  "<cmd>Octo<cr>",         desc = "Octo" },
+      { "<leader>O", "<cmd>Octo<cr>", desc = "Octo" },
       { "<leader>Op", "<cmd>Octo pr list<cr>", desc = "Octo pr list" },
     },
   },
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.4",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    dependencies = {
+      "ThePrimeagen/harpoon",
+      "nvim-lua/plenary.nvim",
+      "joshmedeski/telescope-smart-goto.nvim",
+    },
+    --   config = function(_, opts)
+    --     local telescope = require("telescope")
+    --     telescope.setup(opts)
+    --     telescope.load_extension("smart_goto")
+    --   end,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -215,7 +232,7 @@ local plugins = {
       })
     end,
   },
-  { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "folke/tokyonight.nvim",
   },
@@ -398,12 +415,12 @@ local plugins = {
           theme = "tokyonight",
         },
         sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'diff', 'diagnostics' },
-          lualine_c = { 'filename' },
-          lualine_x = { 'fileformat', 'filetype' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' }
+          lualine_a = { "mode" },
+          lualine_b = { "diff", "diagnostics" },
+          lualine_c = { "filename" },
+          lualine_x = { "fileformat", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
         },
       })
     end,
@@ -573,7 +590,7 @@ local plugins = {
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" }, -- Required
-      {                            -- Optional
+      { -- Optional
         "williamboman/mason.nvim",
         build = function()
           pcall(vim.cmd, "MasonUpdate")
@@ -582,9 +599,9 @@ local plugins = {
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/nvim-cmp" }, -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" },     -- Required
+      { "L3MON4D3/LuaSnip" }, -- Required
       { "rafamadriz/friendly-snippets" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
