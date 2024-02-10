@@ -642,7 +642,6 @@ local plugins = {
           "ktlint",
           "eslint_d",
           "google-java-format",
-          "ktlint",
           "standardrb",
           "htmlbeautifier",
           "beautysh",
