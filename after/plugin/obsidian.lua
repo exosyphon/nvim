@@ -35,7 +35,7 @@ require("obsidian").setup({
 
   note_frontmatter_func = function(note)
     -- This is equivalent to the default frontmatter function.
-    local out = { id = note.id, aliases = note.aliases, tags = note.tags, area = "", project = "" }
+    local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
     -- `note.metadata` contains any manually added fields in the frontmatter.
     -- So here we just make sure those fields are kept in the frontmatter.
@@ -52,5 +52,9 @@ require("obsidian").setup({
       date_format = "%Y-%m-%d-%a",
       time_format = "%H:%M",
       tags = "",
+  },
+    
+  ui = {
+    enable = true,
   },
 })
