@@ -34,9 +34,17 @@ require("obsidian").setup({
 
   templates = {
       subdir = "Templates",
-      date_format = "%Y-%m-%d-%a",
+      date_format = "%Y-%m-%d",
       time_format = "%H:%M",
       tags = "",
+      substitutions = {
+      yesterday = function()
+        return os.date("%Y-%m-%d", os.time() - 86400)
+      end,
+      tomorrow = function()
+        return os.date("%Y-%m-%d", os.time() + 86400)
+      end
+    }
   },
     
   ui = {
