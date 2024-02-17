@@ -15,6 +15,17 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local plugins = {
+  { "preservim/vim-pencil" },
+  { "folke/zen-mode.nvim" },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
