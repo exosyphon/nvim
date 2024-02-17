@@ -21,6 +21,7 @@ local plugins = {
     opts = {
       on_open = function(_)
         vim.opt.nu = false
+        vim.opt.relativenumber = false
         require("noice").disable()
         require("ufo").disable()
         vim.o.foldcolumn = '0'
@@ -28,6 +29,7 @@ local plugins = {
       end,
       on_close = function()
         vim.opt.nu = true
+        vim.opt.relativenumber = true
         require("noice").enable()
         require("ufo").enable()
         vim.o.foldcolumn = '1'
