@@ -16,7 +16,25 @@ vim.g.maplocalleader = " "
 
 local plugins = {
   { "preservim/vim-pencil" },
-  { "folke/zen-mode.nvim" },
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      on_open = function(win)
+        vim.opt.nu = false
+        require("noice").disable()
+        require("ufo").disable()
+        vim.o.foldcolumn = '0'
+        vim.o.foldenable = false
+      end,
+      on_close = function()
+        vim.opt.nu = true
+        require("noice").enable()
+        require("ufo").enable()
+        vim.o.foldcolumn = '1'
+        vim.o.foldenable = true
+      end,
+    }
+  },
   {
     "epwalsh/obsidian.nvim",
     version = "*",
