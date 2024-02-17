@@ -298,6 +298,7 @@ local plugins = {
           "tsx",
           "bash",
           "ruby",
+          "markdown",
         },
         sync_install = false,
         highlight = { enable = true },
