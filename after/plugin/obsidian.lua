@@ -16,22 +16,7 @@ require("obsidian").setup({
     -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
     prepend_note_id = true,
   },
-  mappings = {
-    -- "Obsidian follow"
-    ["<leader>of"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true },
-    },
-    -- Toggle check-boxes "obsidian done"
-    ["<leader>od"] = {
-      action = function()
-        return require("obsidian").util.toggle_checkbox()
-      end,
-      opts = { buffer = true },
-    },
-  },
+  mappings = {},
 
   note_frontmatter_func = function(note)
     -- This is equivalent to the default frontmatter function.
