@@ -19,7 +19,7 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     opts = {
-      on_open = function(win)
+      on_open = function(_)
         vim.opt.nu = false
         require("noice").disable()
         require("ufo").disable()
