@@ -114,7 +114,8 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Resize Vert
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Vertical Split Up" })
 
 -- Obsidian
-vim.keymap.set("n", "<leader>ch", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = "Obsidian Check Checkbox" })
+vim.keymap.set("n", "<leader>oc", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = "Obsidian Check Checkbox" })
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
 
 -- Visual --
 -- Stay in indent mode
