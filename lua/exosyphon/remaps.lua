@@ -1,5 +1,8 @@
--- Open Ex as buffer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "Open NetRW" })
+-- Open directory as buffer
+vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>", { desc = "Open Oil" })
+
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Exit insert mode without hitting Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
