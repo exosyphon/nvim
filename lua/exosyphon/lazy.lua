@@ -736,6 +736,7 @@ local plugins = {
           lualine_y = { "progress" },
           lualine_z = { "location" },
         },
+        extensions = { "oil" }
       })
     end,
   },
