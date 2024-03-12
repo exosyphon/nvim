@@ -584,7 +584,7 @@ local plugins = {
           lualine_y = { "progress" },
           lualine_z = { "location" },
         },
-        extensions = { "oil" }
+        extensions = { "fugitive", "quickfix", "fzf", "lazy", "mason", "nvim-dap-ui", "oil", "trouble" },
       })
     end,
   },
