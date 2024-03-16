@@ -15,6 +15,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local plugins = {
+  { "mfussenegger/nvim-jdtls" },
   {
     "chrishrb/gx.nvim",
     keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
@@ -336,6 +337,7 @@ local plugins = {
           "bash",
           "ruby",
           "markdown",
+          "java",
         },
         sync_install = false,
         highlight = { enable = true },
