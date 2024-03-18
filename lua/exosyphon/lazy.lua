@@ -15,6 +15,18 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local plugins = {
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
+    },
+    config = true,
+  },
   { "mfussenegger/nvim-jdtls" },
   {
     "chrishrb/gx.nvim",
@@ -24,18 +36,18 @@ local plugins = {
       vim.g.netrw_nogx = 1 -- disable netrw gx
     end,
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,      -- default settings
+    config = true, -- default settings
     submodules = false, -- not needed, submodules are required only for tests
   },
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("oil").setup({
         default_file_explorer = true,
       })
-    end
+    end,
   },
   { "preservim/vim-pencil" },
   {
@@ -46,7 +58,7 @@ local plugins = {
         vim.opt.relativenumber = false
         require("noice").disable()
         require("ufo").disable()
-        vim.o.foldcolumn = '0'
+        vim.o.foldcolumn = "0"
         vim.o.foldenable = false
       end,
       on_close = function()
@@ -54,10 +66,10 @@ local plugins = {
         vim.opt.relativenumber = true
         require("noice").enable()
         require("ufo").enable()
-        vim.o.foldcolumn = '1'
+        vim.o.foldcolumn = "1"
         vim.o.foldenable = true
       end,
-    }
+    },
   },
   {
     "epwalsh/obsidian.nvim",
