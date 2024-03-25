@@ -1,20 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-local plugins = {
+ return {
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -69,15 +53,6 @@ local plugins = {
         vim.o.foldcolumn = "1"
         vim.o.foldenable = true
       end,
-    },
-  },
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*",
-    lazy = true,
-    ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
     },
   },
   {
@@ -295,20 +270,6 @@ local plugins = {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
-    dependencies = {
-      "ThePrimeagen/harpoon",
-      "nvim-lua/plenary.nvim",
-      "joshmedeski/telescope-smart-goto.nvim",
-    },
-    --   config = function(_, opts)
-    --     local telescope = require("telescope")
-    --     telescope.setup(opts)
-    --     telescope.load_extension("smart_goto")
-    --   end,
-  },
-  {
     "windwp/nvim-ts-autotag",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
@@ -426,7 +387,6 @@ local plugins = {
       vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
     end,
   },
-  "ThePrimeagen/harpoon",
   {
     "mbbill/undotree",
     config = function()
@@ -440,7 +400,6 @@ local plugins = {
     end,
   },
   "tpope/vim-repeat",
-  "nathom/tmux.nvim",
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -506,6 +465,7 @@ local plugins = {
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio",
         config = function(_, opts)
           local dap = require("dap")
           local dapui = require("dapui")
@@ -543,46 +503,6 @@ local plugins = {
       },
       { "jbyuki/one-small-step-for-vimkind", module = "osv" },
     },
-    -- stylua: ignore
-    -- keys = {
-    --     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
-    --                                                                                                               desc =
-    --         "Breakpoint Condition" },
-    --     { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc =
-    --     "Toggle Breakpoint" },
-    --     { "<leader>dc", function() require("dap").continue() end,                                             desc =
-    --     "Continue" },
-    --     { "<leader>dC", function() require("dap").run_to_cursor() end,                                        desc =
-    --     "Run to Cursor" },
-    --     { "<leader>dg", function() require("dap").goto_() end,                                                desc =
-    --     "Go to line (no execute)" },
-    --     { "<leader>di", function() require("dap").step_into() end,                                            desc =
-    --     "Step Into" },
-    --     { "<leader>dj", function() require("dap").down() end,                                                 desc =
-    --     "Down" },
-    --     { "<leader>dk", function() require("dap").up() end,                                                   desc =
-    --     "Up" },
-    --     { "<leader>dl", function() require("dap").run_last() end,                                             desc =
-    --     "Run Last" },
-    --     { "<leader>do", function() require("dap").step_out() end,                                             desc =
-    --     "Step Out" },
-    --     { "<leader>dO", function() require("dap").step_over() end,                                            desc =
-    --     "Step Over" },
-    --     { "<leader>dp", function() require("dap").pause() end,                                                desc =
-    --     "Pause" },
-    --     { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc =
-    --     "Toggle REPL" },
-    --     { "<leader>ds", function() require("dap").session() end,                                              desc =
-    --     "Session" },
-    --     { "<leader>dt", function() require("dap").terminate() end,                                            desc =
-    --     "Terminate" },
-    --     { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc =
-    --     "Widgets" },
-    -- },
-  },
-  {
-    "mxsdev/nvim-dap-vscode-js",
-    dependencies = { "mfussenegger/nvim-dap" },
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -619,12 +539,6 @@ local plugins = {
   "nanotee/zoxide.vim",
   "nvim-telescope/telescope-ui-select.nvim",
   "debugloop/telescope-undo.nvim",
-  {
-    "AckslD/nvim-neoclip.lua",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-  },
   {
     "jinh0/eyeliner.nvim",
     config = function()
@@ -719,10 +633,6 @@ local plugins = {
   "mg979/vim-visual-multi",
   "tpope/vim-rails",
   {
-    "kevinhwang91/nvim-ufo",
-    dependencies = "kevinhwang91/promise-async",
-  },
-  {
     "williamboman/mason.nvim",
     dependencies = {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -762,31 +672,6 @@ local plugins = {
     end,
   },
   {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
-    dependencies = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig" }, -- Required
-      { -- Optional
-        "williamboman/mason.nvim",
-        build = function()
-          pcall(vim.cmd, "MasonUpdate")
-        end,
-      },
-      { "williamboman/mason-lspconfig.nvim" }, -- Optional
-
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp" }, -- Required
-      { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" }, -- Required
-      { "rafamadriz/friendly-snippets" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline" },
-      { "saadparwaiz1/cmp_luasnip" },
-    },
-  },
-  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
@@ -805,9 +690,3 @@ local plugins = {
     },
   },
 }
-
-require("lazy").setup(plugins, {
-  change_detection = {
-    notify = false,
-  },
-})

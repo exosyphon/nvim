@@ -58,7 +58,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
 
 -- Jump to plugin management file
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/exosyphon/lazy.lua<CR>", { desc = "Jump to lazy.lua" })
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/plugins.lua<CR>", { desc = "Jump to configuration file" })
 
 -- Run Tests
 vim.keymap.set("n", "<leader>t", "<cmd>lua require('neotest').run.run()<CR>", { desc = "Run Test" })
