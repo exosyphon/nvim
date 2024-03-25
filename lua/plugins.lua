@@ -1,5 +1,12 @@
  return {
   {
+    "David-Kunz/gen.nvim",
+    opts = {
+      model = "mistral",
+      display_mode = "float",
+    }
+  },
+  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
