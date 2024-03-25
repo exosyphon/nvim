@@ -16,15 +16,9 @@ return {
       },
       completion = {
         nvim_cmp = true,
-        -- Trigger completion at 2 chars.
         min_chars = 2,
-        --  * "current_dir" - put new notes in same directory as the current buffer.
-        --  * "notes_subdir" - put new notes in the default notes subdirectory.
-        new_notes_location = "current_dir",
-        -- 1. Whether to add the note ID during completion.
-        -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
-        prepend_note_id = true,
       },
+      new_notes_location = "notes_subdir",
       mappings = {},
 
       note_frontmatter_func = function(note)
