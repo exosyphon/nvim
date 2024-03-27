@@ -430,6 +430,7 @@
       "zidhuss/neotest-minitest",
       "mfussenegger/nvim-dap",
       "jfpedroza/neotest-elixir",
+      "weilbith/neotest-gradle",
     },
     opts = {},
     config = function()
@@ -444,6 +445,7 @@
 
       neotest.setup({
         adapters = {
+          require("neotest-gradle"),
           require("neotest-rspec")({
             rspec_cmd = function()
               return vim.tbl_flatten({
