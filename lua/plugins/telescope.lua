@@ -82,6 +82,8 @@ return {
             ["<CR>"] = select_one_or_multi,
             ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
             ["<C-S-d>"] = actions.delete_buffer,
+				    ["<C-s>"] = actions.cycle_previewers_next,
+				    ["<C-a>"] = actions.cycle_previewers_prev,
           },
         },
       },
