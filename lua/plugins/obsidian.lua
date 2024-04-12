@@ -23,7 +23,7 @@ return {
         return title
       end,
       note_frontmatter_func = function(note)
-        local out = { id = note.id, aliases = {}, tags = note.tags }
+        local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
         if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
           for k, v in pairs(note.metadata) do
