@@ -244,6 +244,7 @@
           toml = { "taplo" },
           css = { { "prettierd", "prettier" } },
           scss = { { "prettierd", "prettier" } },
+          sh = { { "shellcheck" } },
         },
       })
 
@@ -697,6 +698,7 @@
           "rustfmt",
           "yamlfix",
           "taplo",
+          "shellcheck",
         },
       })
     end,
