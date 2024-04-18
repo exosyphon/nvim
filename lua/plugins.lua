@@ -162,6 +162,7 @@
           filter = { event = "notify", find = "No information available" },
           opts = { skip = true },
         },
+        { view = "cmdline", filter = { event = "msg_showmode" } },
       },
       presets = {
         lsp_doc_border = true,
