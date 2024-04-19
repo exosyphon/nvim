@@ -172,7 +172,6 @@
           filter = { event = "notify", find = "No information available" },
           opts = { skip = true },
         },
-        { view = "cmdline", filter = { event = "msg_showmode" } },
       },
       presets = {
         lsp_doc_border = true,
@@ -558,7 +557,14 @@
           lualine_a = { "mode" },
           lualine_b = { "diff", "diagnostics" },
           lualine_c = { { "filename", path = 1 } },
-          lualine_x = { "fileformat", "filetype" },
+          lualine_x = {
+            { "fileformat", "filetype" },
+            {
+              require("noice").api.statusline.mode.get,
+              cond = require("noice").api.statusline.mode.has,
+              color = { fg = "#ff9e64" },
+            },
+          },
           lualine_y = { "progress" },
           lualine_z = { "location" },
         },
