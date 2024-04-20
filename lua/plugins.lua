@@ -4,7 +4,6 @@
      config = function()
        require("marks").setup({
          default_mappings = true,
-         builtin_marks = { ".", "<", ">", "^" },
        })
      end,
    },
