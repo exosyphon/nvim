@@ -1,14 +1,14 @@
- return {
-   {
-     "chentoast/marks.nvim",
-     config = function()
-       require("marks").setup({
-         default_mappings = true,
-       })
-     end,
-   },
-   { "tpope/vim-projectionist" },
-   {
+return {
+  {
+    "chentoast/marks.nvim",
+    config = function()
+      require("marks").setup({
+        default_mappings = true,
+      })
+    end,
+  },
+  { "tpope/vim-projectionist" },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     cmd = { "Neotree" },
@@ -39,12 +39,12 @@
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim", -- required
+      "nvim-lua/plenary.nvim",  -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed, not both.
       "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua", -- optional
+      "ibhagwan/fzf-lua",              -- optional
     },
     config = true,
   },
@@ -57,7 +57,7 @@
       vim.g.netrw_nogx = 1 -- disable netrw gx
     end,
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true, -- default settings
+    config = true,      -- default settings
     submodules = false, -- not needed, submodules are required only for tests
   },
   {
@@ -281,12 +281,18 @@
     end,
   },
   {
-    "ggandor/leap.nvim",
-    config = function()
-      local leap = require('leap')
-      leap.add_default_mappings()
-      leap.opts.case_sensitive = true
-    end,
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
   },
   {
     "pwntester/octo.nvim",
@@ -305,7 +311,7 @@
       vim.treesitter.language.register("markdown", "octo")
     end,
     keys = {
-      { "<leader>O", "<cmd>Octo<cr>", desc = "Octo" },
+      { "<leader>O",  "<cmd>Octo<cr>",         desc = "Octo" },
       { "<leader>Op", "<cmd>Octo pr list<cr>", desc = "Octo pr list" },
     },
   },
@@ -411,7 +417,7 @@
       })
     end,
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
   {
     "folke/tokyonight.nvim",
   },
