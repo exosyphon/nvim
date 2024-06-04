@@ -595,15 +595,6 @@ return {
   "nvim-telescope/telescope-ui-select.nvim",
   "debugloop/telescope-undo.nvim",
   {
-    "jinh0/eyeliner.nvim",
-    config = function()
-      require("eyeliner").setup({
-        highlight_on_key = true,
-        dim = true,
-      })
-    end,
-  },
-  {
     "voldikss/vim-floaterm",
     config = function()
       vim.keymap.set(
