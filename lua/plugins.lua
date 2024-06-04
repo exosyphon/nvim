@@ -75,6 +75,9 @@ return {
           is_always_hidden = function(name, _)
             return name == '..' or name == '.git'
           end,
+        },
+        win_options = {
+          wrap = true,
         }
       })
     end,
