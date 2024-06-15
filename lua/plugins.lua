@@ -7,6 +7,7 @@ return {
       })
     end,
   },
+  { 'brenoprata10/nvim-highlight-colors' },
   { "tpope/vim-projectionist" },
   {
     "nvim-neo-tree/neo-tree.nvim",
