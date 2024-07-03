@@ -1,55 +1,67 @@
 return {
-  { 'nvim-telescope/telescope-media-files.nvim' },
-  -- {
-  --   'vhyrro/luarocks.nvim',
-  --   priority = 1001, -- this plugin needs to run before anything else
-  --   opts = {
-  --     rocks = { 'magick' },
-  --   },
-  -- },
-  -- {
-  --   "3rd/image.nvim",
-  --   config = function()
-  --     require("image").setup({
-  --       backend = "kitty",
-  --       integrations = {
-  --         markdown = {
-  --           enabled = true,
-  --           clear_in_insert_mode = false,
-  --           download_remote_images = true,
-  --           only_render_image_at_cursor = false,
-  --           filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-  --           resolve_image_path = function (document_path, image_path, fallback)
-  --             return fallback(document_path, image_path)
-  --           end
-  --         },
-  --         html = {
-  --           enabled = false,
-  --         },
-  --         css = {
-  --           enabled = false,
-  --         },
-  --       },
-  --       max_width = nil,
-  --       max_height = nil,
-  --       max_width_window_percentage = nil,
-  --       max_height_window_percentage = 50,
-  --       window_overlap_clear_enabled = false,                                         -- toggles images when windows are overlapped
-  --       window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
-  --       editor_only_render_when_focused = false,                                      -- auto show/hide images when the editor gains/looses focus
-  --       tmux_show_only_in_active_window = false,                                      -- auto show/hide images in the correct Tmux window (needs visual-activity off)
-  --       hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
-  --     })
-  --   end
-  -- },
+  -- { 'nvim-telescope/telescope-media-files.nvim' },
   {
-    'edluffy/hologram.nvim',
+    "kelly-lin/ranger.nvim",
     config = function()
-      require('hologram').setup {
-        auto_display = true -- WIP automatic markdown image display, may be prone to breaking
-      }
+      require("ranger-nvim").setup({ replace_netrw = true })
+      vim.api.nvim_set_keymap("n", "<leader>ef", "", {
+        noremap = true,
+        callback = function()
+          require("ranger-nvim").open(true)
+        end,
+      })
+    end,
+  },
+  {
+    'vhyrro/luarocks.nvim',
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { 'magick' },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    config = function()
+      require("image").setup({
+        backend = "kitty",
+        integrations = {
+          markdown = {
+            enabled = true,
+            clear_in_insert_mode = false,
+            download_remote_images = true,
+            only_render_image_at_cursor = true,
+            filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+            resolve_image_path = function(document_path, image_path, fallback)
+              return fallback(document_path, image_path)
+            end
+          },
+          html = {
+            enabled = false,
+          },
+          css = {
+            enabled = false,
+          },
+        },
+        max_width = nil,
+        max_height = nil,
+        max_width_window_percentage = nil,
+        max_height_window_percentage = 50,
+        window_overlap_clear_enabled = false,                                               -- toggles images when windows are overlapped
+        window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+        editor_only_render_when_focused = false,                                            -- auto show/hide images when the editor gains/looses focus
+        tmux_show_only_in_active_window = false,                                            -- auto show/hide images in the correct Tmux window (needs visual-activity off)
+        hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
+      })
     end
   },
+  -- {
+  --   'edluffy/hologram.nvim',
+  --   config = function()
+  --     require('hologram').setup {
+  --       auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+  --     }
+  --   end
+  -- },
   {
     "chentoast/marks.nvim",
     config = function()
@@ -112,38 +124,38 @@ return {
     config = true,      -- default settings
     submodules = false, -- not needed, submodules are required only for tests
   },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("oil").setup({
-        default_file_explorer = true,
-        delete_to_trash = true,
-        skip_confirm_for_simple_edits = true,
-        view_options = {
-          show_hidden = true,
-          natural_order = true,
-          is_always_hidden = function(name, _)
-            return name == ".." or name == ".git"
-          end,
-        },
-        float = {
-          padding = 2,
-          max_width = 90,
-          max_height = 0,
-        },
-        win_options = {
-          wrap = true,
-          winblend = 0,
-        },
-        keymaps = {
-          ["<C-c>"] = false,
-          ["q"] = "actions.close",
-        },
-      })
-    end,
-  },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   opts = {},
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     require("oil").setup({
+  --       default_file_explorer = true,
+  --       delete_to_trash = true,
+  --       skip_confirm_for_simple_edits = true,
+  --       view_options = {
+  --         show_hidden = true,
+  --         natural_order = true,
+  --         is_always_hidden = function(name, _)
+  --           return name == ".." or name == ".git"
+  --         end,
+  --       },
+  --       float = {
+  --         padding = 2,
+  --         max_width = 90,
+  --         max_height = 0,
+  --       },
+  --       win_options = {
+  --         wrap = true,
+  --         winblend = 0,
+  --       },
+  --       keymaps = {
+  --         ["<C-c>"] = false,
+  --         ["q"] = "actions.close",
+  --       },
+  --     })
+  --   end,
+  -- },
   { "preservim/vim-pencil" },
   {
     "folke/zen-mode.nvim",
