@@ -29,7 +29,7 @@ return {
     vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find Word under Cursor" })
     vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search Git Commits" })
     vim.keymap.set("n", "<leader>gb", builtin.git_bcommits, { desc = "Search Git Commits for Buffer" })
-    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })		
+    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
     vim.keymap.set("n", "<leader>/", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -83,8 +83,8 @@ return {
             ["<CR>"] = select_one_or_multi,
             ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
             ["<C-S-d>"] = actions.delete_buffer,
-				    ["<C-s>"] = actions.cycle_previewers_next,
-				    ["<C-a>"] = actions.cycle_previewers_prev,
+            ["<C-s>"] = actions.cycle_previewers_next,
+            ["<C-a>"] = actions.cycle_previewers_prev,
           },
         },
       },
@@ -109,6 +109,12 @@ return {
             },
           },
         },
+        media_files = {
+          -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+          filetypes = { "png", "webp", "jpg", "jpeg" },
+          -- find command (defaults to `fd`)
+          find_cmd = "rg"
+        },
       },
     })
 
@@ -128,5 +134,7 @@ return {
     require("telescope").load_extension("colors")
 
     require("telescope").load_extension("noice")
+
+    require("telescope").load_extension("media_files")
   end,
 }
