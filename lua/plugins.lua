@@ -1,6 +1,13 @@
 return {
   -- { 'nvim-telescope/telescope-media-files.nvim' },
   {
+    'adelarsq/image_preview.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require("image_preview").setup()
+    end
+  },
+  {
     "kelly-lin/ranger.nvim",
     config = function()
       require("ranger-nvim").setup({ replace_netrw = true })
