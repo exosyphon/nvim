@@ -301,6 +301,7 @@ return {
           css = { { "prettierd", "prettier" } },
           scss = { { "prettierd", "prettier" } },
           sh = { { "shellcheck" } },
+          go = { { "gofmt" } },
         },
       })
 
@@ -771,6 +772,8 @@ return {
           "yamlfix",
           "taplo",
           "shellcheck",
+          "gopls",
+          "delve",
         },
       })
     end,

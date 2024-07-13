@@ -61,6 +61,7 @@ return {
         "marksman",
         "solargraph",
         "cucumber_language_server",
+        "gopls",
       },
       handlers = {
         lsp.default_setup,
