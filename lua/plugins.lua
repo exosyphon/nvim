@@ -86,13 +86,6 @@ return {
     end,
   },
   {
-    "David-Kunz/gen.nvim",
-    opts = {
-      model = "llama3",
-      display_mode = "float",
-    }
-  },
-  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim",  -- required
