@@ -541,6 +541,7 @@ return {
       "mfussenegger/nvim-dap",
       "jfpedroza/neotest-elixir",
       "weilbith/neotest-gradle",
+      "nvim-neotest/neotest-go",
     },
     opts = {},
     config = function()
@@ -568,6 +569,7 @@ return {
           neotest_jest,
           require("neotest-minitest"),
           require("neotest-elixir"),
+          require("neotest-go"),
         },
         output_panel = {
           enabled = true,
