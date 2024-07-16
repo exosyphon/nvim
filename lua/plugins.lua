@@ -590,6 +590,7 @@ return {
         config = function(_, opts)
           local dap = require("dap")
           local dapui = require("dapui")
+          dap.set_log_level('INFO')
           dapui.setup(opts)
           dap.listeners.after.event_initialized["dapui_config"] = function()
             dapui.open({})
