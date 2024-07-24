@@ -795,7 +795,11 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 500
     end,
-    opts = {},
+    opts = {
+      triggers = {
+        { "<auto>", mode = "nxso" },
+      },
+    },
   },
   { "nvim-telescope/telescope-live-grep-args.nvim" },
   {
