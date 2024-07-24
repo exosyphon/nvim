@@ -281,6 +281,7 @@ return {
         formatters_by_ft = {
           lua = { "stylua" },
           svelte = { { "prettierd", "prettier", stop_after_first = true } },
+          astro = { { "prettierd", "prettier", stop_after_first = true } },
           javascript = { { "prettierd", "prettier", stop_after_first = true } },
           typescript = { { "prettierd", "prettier", stop_after_first = true } },
           javascriptreact = { { "prettierd", "prettier", stop_after_first = true } },
@@ -415,6 +416,7 @@ return {
           "ruby",
           "markdown",
           "java",
+          "astro",
         },
         sync_install = false,
         highlight = { enable = true },
@@ -784,6 +786,7 @@ return {
           "shellcheck",
           "gopls",
           "delve",
+          "astro-language-server",
         },
       })
     end,

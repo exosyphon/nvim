@@ -62,6 +62,7 @@ return {
         "solargraph",
         "cucumber_language_server",
         "gopls",
+        "astro",
       },
       handlers = {
         lsp.default_setup,
