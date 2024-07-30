@@ -14,7 +14,7 @@ return {
       },
       agents = {
         {
-          name = "Codellama",
+          name = "Llama3.1",
           chat = true,
           command = true,
           provider = "ollama",
