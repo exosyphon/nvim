@@ -18,7 +18,7 @@ return {
           chat = true,
           command = true,
           provider = "ollama",
-          model = { model = "llama3" },
+          model = { model = "llama3.1" },
           system_prompt = "I am an AI meticulously crafted to provide programming guidance and code assistance. "
             .. "To best serve you as a computer programmer, please provide detailed inquiries and code snippets when necessary, "
             .. "and expect precise, technical responses tailored to your development needs.\n",
