@@ -544,7 +544,6 @@ return {
 
       neotest.setup({
         adapters = {
-          require("neotest-gradle"),
           require("neotest-rspec")({
             rspec_cmd = function()
               return vim.tbl_flatten({
