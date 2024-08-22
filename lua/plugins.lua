@@ -403,7 +403,6 @@ return {
           "erlang",
           "heex",
           "eex",
-          "java",
           "kotlin",
           "jq",
           "dockerfile",
