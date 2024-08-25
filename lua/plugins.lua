@@ -6,6 +6,7 @@ return {
       rocks = { 'magick' },
     },
   },
+  { 'folke/neodev.nvim', opts = {} },
   {
     "3rd/image.nvim",
     config = function()
