@@ -9,7 +9,7 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, 
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
   },
   { 'folke/neodev.nvim', opts = {} },
   {
@@ -485,6 +485,13 @@ return {
   { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
   {
     "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
   {
     "catppuccin/nvim",
