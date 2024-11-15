@@ -6,7 +6,7 @@ vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Exit insert mode without hitting Esc
-vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
+vim.keymap.set("i", "jj", "<Esc><Esc>", { desc = "Esc" })
 
 -- Make Y behave like C or D
 vim.keymap.set("n", "Y", "y$")
