@@ -309,6 +309,7 @@ return {
           scss = { { "prettierd", "prettier", stop_after_first = true } },
           sh = { "shellcheck" },
           go = { "gofmt" },
+          xml = { "xmllint" },
         },
       })
 
