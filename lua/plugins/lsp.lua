@@ -44,7 +44,7 @@ return {
     require("mason").setup({})
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "typescript-language-server",
+        "tsserver",
         "eslint",
         "rust_analyzer",
         "kotlin_language_server",
