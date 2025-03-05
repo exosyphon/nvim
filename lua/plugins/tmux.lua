@@ -1,10 +1,10 @@
 return {
-  "nathom/tmux.nvim",
+  'numToStr/Navigator.nvim',
   config = function()
-    local map = vim.api.nvim_set_keymap
-    map("n", "<C-h>", [[<cmd>lua require('tmux').move_left()<cr>]], { desc = "Go left tmux window" })
-    map("n", "<C-j>", [[<cmd>lua require('tmux').move_down()<cr>]], { desc = "Go top tmux window" })
-    map("n", "<C-k>", [[<cmd>lua require('tmux').move_up()<cr>]], { desc = "Go bottom tmux window" })
-    map("n", "<C-l>", [[<cmd>lua require('tmux').move_right()<cr>]], { desc = "Go right tmux window" })
-  end,
+    require('Navigator').setup()
+    vim.keymap.set({ 'n', 't' }, '<C-h>', '<CMD>NavigatorLeft<CR>')
+    vim.keymap.set({ 'n', 't' }, '<C-l>', '<CMD>NavigatorRight<CR>')
+    vim.keymap.set({ 'n', 't' }, '<C-k>', '<CMD>NavigatorUp<CR>')
+    vim.keymap.set({ 'n', 't' }, '<C-j>', '<CMD>NavigatorDown<CR>')
+  end
 }
