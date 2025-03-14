@@ -66,6 +66,17 @@ return {
     statuscolumn = { enabled = false },
     words = { enabled = false },
     rename = { enabled = true },
-    zen = { enabled = true },
+    zen = {
+      enabled = true,
+      toggles = {
+        dim             = true,
+        git_signs       = false,
+        diagnostics     = false,
+        line_number     = false,
+        relative_number = false,
+        signcolumn      = "no",
+        indent          = false
+      }
+    },
   },
 }
