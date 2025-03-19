@@ -16,6 +16,7 @@ return {
     { "<leader>bd", function() Snacks.bufdelete() end,       desc = "Buffer delete",       mode = "n" },
     { "<leader>ba", function() Snacks.bufdelete.all() end,   desc = "Buffer delete all",   mode = "n" },
     { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Buffer delete other", mode = "n" },
+    { "<leader>bz", function() Snacks.zen() end, desc = "Toggle Zen Mode", mode = "n" },
   },
   opts = {
     bigfile = { enabled = false },
@@ -68,6 +69,7 @@ return {
     zen = {
       enabled = true,
       toggles = {
+        ufo             = true,
         dim             = true,
         git_signs       = false,
         diagnostics     = false,
