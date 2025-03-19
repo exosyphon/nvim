@@ -16,7 +16,7 @@ return {
     { "<leader>bd", function() Snacks.bufdelete() end,       desc = "Buffer delete",       mode = "n" },
     { "<leader>ba", function() Snacks.bufdelete.all() end,   desc = "Buffer delete all",   mode = "n" },
     { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Buffer delete other", mode = "n" },
-    { "<leader>bz", function() Snacks.zen() end, desc = "Toggle Zen Mode", mode = "n" },
+    { "<leader>bz", function() Snacks.zen() end,             desc = "Toggle Zen Mode",     mode = "n" },
   },
   opts = {
     bigfile = { enabled = false },
@@ -80,4 +80,28 @@ return {
       }
     },
   },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+
+    Snacks.toggle.new({
+      id = "ufo",
+      name = "Enable/Disable ufo",
+      get = function()
+        return require("ufo").inspect()
+      end,
+      set = function(state)
+        if state == nil then
+          require("noice").enable()
+          require("ufo").enable()
+          vim.o.foldenable = true
+          vim.o.foldcolumn = "1"
+        else
+          require("noice").disable()
+          require("ufo").disable()
+          vim.o.foldenable = false
+          vim.o.foldcolumn = "0"
+        end
+      end,
+    })
+  end
 }
