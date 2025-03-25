@@ -19,7 +19,7 @@ return {
     { "<leader>bz", function() Snacks.zen() end,             desc = "Toggle Zen Mode",     mode = "n" },
   },
   opts = {
-    bigfile = { enabled = false },
+    bigfile = { enabled = true },
     dashboard = {
       preset = {
         pick = nil,
