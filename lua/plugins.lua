@@ -41,10 +41,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",  -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua",              -- optional
     },
     config = true,
   },
@@ -231,7 +227,6 @@ return {
     cmd = "Octo",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
@@ -686,7 +681,6 @@ return {
   {
     "aaronhallaert/advanced-git-search.nvim",
     dependencies = {
-      "nvim-telescope/telescope.nvim",
       "tpope/vim-fugitive",
       "tpope/vim-rhubarb",
     },
