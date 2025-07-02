@@ -2,6 +2,7 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
+    ft = { "markdown", "codecompanion" },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
   },
   { 'folke/neodev.nvim', opts = {} },
@@ -681,8 +682,37 @@ return {
   {
     "aaronhallaert/advanced-git-search.nvim",
     dependencies = {
+      "nvim-telescope/telescope.nvim",
       "tpope/vim-fugitive",
       "tpope/vim-rhubarb",
     },
   },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "ravitemer/mcphub.nvim"
+    },
+    config = function()
+      require("codecompanion").setup({
+        strategies = {
+          chat = {
+            adapter = "ollama",
+          },
+          inline = {
+            adapter = "ollama",
+          },
+        },
+        extensions = {
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              make_vars = true,
+              make_slash_commands = true,
+              show_result_in_chat = true
+            }
+          }
+        }
+      })
+    end,
+  }
 }
