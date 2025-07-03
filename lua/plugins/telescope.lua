@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  event = "VeryLazy",
   tag = "0.1.4",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -122,8 +123,6 @@ return {
     require("telescope").load_extension("advanced_git_search")
 
     require("telescope").load_extension("live_grep_args")
-
-    require("telescope").load_extension("colors")
 
     require("telescope").load_extension("noice")
   end,
