@@ -5,17 +5,18 @@ return {
     ft = { "markdown", "codecompanion" },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
   },
-  { 'folke/neodev.nvim', opts = {} },
+  { 'folke/neodev.nvim', opts = {}, lazy = true },
   {
     "chentoast/marks.nvim",
+    lazy = true,
     config = function()
       require("marks").setup({
         default_mappings = true,
       })
     end,
   },
-  { 'brenoprata10/nvim-highlight-colors' },
-  { "tpope/vim-projectionist" },
+  { 'brenoprata10/nvim-highlight-colors', lazy = true },
+  { "tpope/vim-projectionist", lazy = true },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -44,12 +45,14 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
     },
     config = true,
+    lazy = true,
   },
-  { "mfussenegger/nvim-jdtls" },
+  { "mfussenegger/nvim-jdtls", lazy = true },
   {
     "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = true,
     config = function()
       require("oil").setup({
         default_file_explorer = true,
@@ -78,7 +81,7 @@ return {
       })
     end,
   },
-  { "preservim/vim-pencil" },
+  { "preservim/vim-pencil", lazy = true },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -187,6 +190,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
+    lazy = true,
     config = function()
       require("treesitter-context").setup({
         max_lines = 5,
@@ -195,6 +199,7 @@ return {
   },
   {
     "RRethy/vim-illuminate",
+    lazy = true,
     config = function()
       require("illuminate")
     end,
@@ -252,7 +257,7 @@ return {
     lazy = true,
     event = "VeryLazy",
   },
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -345,7 +350,7 @@ return {
       })
     end,
   },
-  { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -364,31 +369,36 @@ return {
   },
   {
     "exosyphon/telescope-color-picker.nvim",
+    lazy = true,
     config = function()
       vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
     end,
   },
   {
     "mbbill/undotree",
+    lazy = true,
     config = function()
       vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
     end,
   },
   {
     "tpope/vim-fugitive",
+    lazy = true,
     config = function()
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Open Fugitive Panel" })
     end,
   },
-  "tpope/vim-repeat",
+  { "tpope/vim-repeat", lazy = true },
   {
     "numToStr/Comment.nvim",
+    lazy = true,
     config = function()
       require("Comment").setup()
     end,
   },
   {
     "windwp/nvim-autopairs",
+    lazy = true,
     config = function()
       require("nvim-autopairs").setup()
     end,
@@ -408,6 +418,7 @@ return {
       "nvim-neotest/neotest-go",
     },
     opts = {},
+    lazy = true,
     config = function()
       local neotest = require("neotest")
 
@@ -446,6 +457,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    lazy = true,
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
@@ -535,12 +547,14 @@ return {
   {
     "junegunn/fzf",
     build = ":call fzf#install()",
+    lazy = true,
   },
-  "nanotee/zoxide.vim",
-  "nvim-telescope/telescope-ui-select.nvim",
-  "debugloop/telescope-undo.nvim",
+  { "nanotee/zoxide.vim", lazy = true },
+  { "nvim-telescope/telescope-ui-select.nvim", lazy = true },
+  { "debugloop/telescope-undo.nvim", lazy = true },
   {
     "voldikss/vim-floaterm",
+    lazy = true,
     config = function()
       vim.keymap.set(
         "n",
@@ -554,12 +568,14 @@ return {
   },
   {
     "tummetott/unimpaired.nvim",
+    lazy = true,
     config = function()
       require("unimpaired").setup()
     end,
   },
   {
     "lewis6991/gitsigns.nvim",
+    lazy = true,
     config = function()
       require("gitsigns").setup({
         on_attach = function(bufnr)
@@ -621,13 +637,14 @@ return {
       })
     end,
   },
-  "mg979/vim-visual-multi",
-  "tpope/vim-rails",
+  { "mg979/vim-visual-multi", lazy = true },
+  { "tpope/vim-rails", lazy = true },
   {
     "williamboman/mason.nvim",
     dependencies = {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
+    lazy = true,
     config = function()
       local mason = require("mason")
       local mason_tool_installer = require("mason-tool-installer")
@@ -678,9 +695,10 @@ return {
       },
     },
   },
-  { "nvim-telescope/telescope-live-grep-args.nvim" },
+  { "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
   {
     "aaronhallaert/advanced-git-search.nvim",
+    lazy = true,
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "tpope/vim-fugitive",
@@ -692,6 +710,7 @@ return {
     dependencies = {
       "ravitemer/mcphub.nvim"
     },
+    lazy = true,
     config = function()
       require("codecompanion").setup({
         strategies = {
