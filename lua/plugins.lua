@@ -708,13 +708,16 @@ return {
     },
     config = function()
       require("codecompanion").setup({
+        adapters = {
+          ollama = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              schema = { model = { default = "qwen3" } },
+            })
+          end,
+        },
         strategies = {
-          chat = {
-            adapter = "ollama",
-          },
-          inline = {
-            adapter = "ollama",
-          },
+          chat = { adapter = "ollama" },
+          inline = { adapter = "ollama" },
         },
         extensions = {
           mcphub = {
