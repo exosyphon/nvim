@@ -11,7 +11,7 @@ return {
       workspaces = {
         {
           name = "ObsidianVault",
-          path = "/Users/andrew/Documents/ObsidianVault",
+          path = "/Users/andrew.courter/Documents/ObsidianVault",
         },
       },
       completion = {
@@ -22,19 +22,19 @@ return {
       note_id_func = function(title)
         return title
       end,
-      note_frontmatter_func = function(note)
-        local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+      frontmatter = {
+        func = function(note)
+          local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
-        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-          for k, v in pairs(note.metadata) do
-            out[k] = v
+          if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+            for k, v in pairs(note.metadata) do
+              out[k] = v
+            end
           end
-        end
 
-        return out
-      end,
-      mappings = {},
-
+          return out
+        end,
+      },
       templates = {
         subdir = "Templates",
         date_format = "%Y-%m-%d",
@@ -53,6 +53,7 @@ return {
       ui = {
         enable = false, -- using render-markdown.nvim instead
       },
+      legacy_commands = false,
     })
   end,
 }
