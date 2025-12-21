@@ -703,9 +703,6 @@ return {
   {
     "olimorris/codecompanion.nvim",
     event = "VeryLazy",
-    dependencies = {
-      "ravitemer/mcphub.nvim"
-    },
     config = function()
       require("codecompanion").setup({
         http = {
