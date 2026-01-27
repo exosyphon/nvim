@@ -47,7 +47,7 @@ return {
       ensure_installed = {
         "eslint",
         "rust_analyzer",
-        "kotlin_language_server",
+        "kotlin_lsp",
         "jdtls",
         "lua_ls",
         "jsonls",

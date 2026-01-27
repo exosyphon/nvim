@@ -49,7 +49,71 @@ return {
     },
     config = true,
   },
-  { "mfussenegger/nvim-jdtls", ft = {"kotlin", "java"} },
+  { "mfussenegger/nvim-jdtls", ft = {"java"} },
+  {
+    "AlexandrosAlexiou/kotlin.nvim",
+    ft = { "kotlin" },
+    dependencies = {
+      "mason.nvim",
+      "mason-lspconfig.nvim",
+      "oil.nvim",
+      {
+        "folke/trouble.nvim",
+        cmd = "Trouble",
+        opts = {},
+      },
+    },
+    config = function()
+      require("kotlin").setup {
+        -- Root markers for project detection
+        root_markers = {
+          "gradlew",
+          ".git",
+          "mvnw",
+          "settings.gradle",
+        },
+
+        -- Use asdf-managed Java 17 for symbol resolution (analyzing your code)
+        jdk_for_symbol_resolution = "/Users/andrew.courter/.asdf/installs/java/temurin-17.0.8+101",
+
+        -- Use bundled JRE from Mason to run the kotlin-lsp server (recommended)
+        jre_path = nil,
+
+        -- Optional: Increase heap for large projects
+        jvm_args = {
+          "-Xmx4g",
+        },
+
+        -- Enable all inlay hints by default
+        inlay_hints = {
+          enabled = true,
+          parameters = true,
+          parameters_compiled = true,
+          parameters_excluded = false,
+          types_property = true,
+          types_variable = true,
+          function_return = true,
+          function_parameter = true,
+          lambda_return = true,
+          lambda_receivers_parameters = true,
+          value_ranges = true,
+          kotlin_time = true,
+        },
+      }
+
+      -- Keymaps with <leader>lk prefix
+      vim.keymap.set('n', '<leader>lka', ':KotlinCodeActions<CR>', { desc = 'Kotlin code actions' })
+      vim.keymap.set('n', '<leader>lkq', ':KotlinQuickFix<CR>', { desc = 'Kotlin quick fix' })
+      vim.keymap.set('n', '<leader>lko', ':KotlinOrganizeImports<CR>', { desc = 'Organize Kotlin imports' })
+      vim.keymap.set('n', '<leader>lkf', ':KotlinFormat<CR>', { desc = 'Format Kotlin buffer (LSP)' })
+      vim.keymap.set('n', '<leader>lks', ':KotlinSymbols<CR>', { desc = 'Show Kotlin document symbols' })
+      vim.keymap.set('n', '<leader>lkw', ':KotlinWorkspaceSymbols<CR>', { desc = 'Search workspace symbols' })
+      vim.keymap.set('n', '<leader>lkr', ':KotlinReferences<CR>', { desc = 'Find Kotlin references' })
+      vim.keymap.set('n', '<leader>lkn', ':KotlinRename<CR>', { desc = 'Rename Kotlin symbol' })
+      vim.keymap.set('n', '<leader>lkh', ':KotlinInlayHintsToggle<CR>', { desc = 'Toggle Kotlin inlay hints' })
+      vim.keymap.set('n', '<leader>lkc', ':KotlinCleanWorkspace<CR>', { desc = 'Clean Kotlin workspace' })
+    end,
+  },
   {
     "stevearc/oil.nvim",
     event = "VeryLazy",
