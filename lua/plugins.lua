@@ -74,7 +74,7 @@ return {
         },
 
         -- Use asdf-managed Java 17 for symbol resolution (analyzing your code)
-        jdk_for_symbol_resolution = "/Users/andrew.courter/.asdf/installs/java/temurin-17.0.8+101",
+        jdk_for_symbol_resolution = "~/.asdf/installs/java/temurin-17.0.8+101",
 
         -- Use bundled JRE from Mason to run the kotlin-lsp server (recommended)
         jre_path = nil,
