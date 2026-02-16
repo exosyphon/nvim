@@ -53,5 +53,10 @@ return {
       enable = false,   -- using render-markdown.nvim instead
     },
     legacy_commands = false,
+    checkbox = {
+      enabled = true,
+      create_new = true,                 -- Optional: automatically create a new checkbox on new lines
+      order = { " ", "x" }, -- Custom cycle order
+    },
   }
 }
