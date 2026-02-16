@@ -2,9 +2,14 @@ return {
   {
     'vhyrro/luarocks.nvim',
     priority = 1001, -- this plugin needs to run before anything else
-    opts = {
-      rocks = { 'magick' },
-    },
+    config = function()
+      -- Workaround: luarocks >= 3.13.0 moved vendored modules (dkjson, argparse, etc.)
+      -- into luarocks/vendor/ but the loader expects them at top-level package.path.
+      -- Add the vendor path before setup so require("dkjson") can resolve.
+      local rocks_path = vim.fn.stdpath("data") .. "/lazy/luarocks.nvim/.rocks"
+      package.path = package.path .. ";" .. rocks_path .. "/share/lua/5.1/luarocks/vendor/?.lua"
+      require("luarocks-nvim").setup({ rocks = { "magick" } })
+    end,
   },
   {
     "3rd/image.nvim",

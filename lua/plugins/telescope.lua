@@ -1,7 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   event = "VeryLazy",
-  tag = "0.1.4",
+  tag = "v0.2.1",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
