@@ -9,7 +9,7 @@ return {
   config = function()
     ---@type opencode.Opts
     vim.g.opencode_opts = {
-      provider = {
+      server = {
         enabled = "tmux",
         tmux = {
           options = "-h -p 30", -- use a horizontal split
